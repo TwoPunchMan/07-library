@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Library - TOP</title>
+		<link href=style.css rel="stylesheet">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<!-- Navbar -->
+			<div class="navbar">
+				<h1>The Library</h1>
+				<button class="add-book btn">
+					<div>Add<br>Book</div>
+					<div style="font-size: 32px">+</div>
+				</button>
+				<button class="theme-toggle btn">
+					<img src="images/icons/light-bulb.png">
+				</button>
+			</div>
+
+			<!-- Main Content -->
+			<div class="main-content">
+				<h2 class="status">Place something here</h2>
+				
+				<ul class="books-list"></ul>
+				<div>icons from flaticon.com</div>
+			</div>
+
+			<!-- Form and backdrop container -->
+			<div class="form">
+
+				<!-- Invisible Add Book form until add book button pressed -->
+				<form id="add-book-form" method="post">
+					<div>
+						<label for="title">Title</label>
+						<input type="text" id="title" name="title" minlength="1" required>
+					</div>
+					<div>
+						<label for="author">Author</label>
+						<input type="text" id="author" name="author" minlength="1" required>
+					</div>
+					<div>
+						<label for="pages">Number of pages</label>
+						<input type="number" id="pages" name="pages" min="1" required>
+					</div>
+					<div>
+						<label for="read">Read status</label>
+						<select id="read" name="read">
+							<option value="read">Read</option>
+							<option value="not read" selected>Not Read</option>
+						</select>						
+					</div>
+					<div>
+						<button id="cancel" class="form-btn" type="reset">Cancel</button>
+						<button id="add" class="form-btn" type="button">Add Book</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Backdrop when focusing on form -->
+			<div class="form-backdrop"></div>
+		</div>
+	</body>
+</html>
