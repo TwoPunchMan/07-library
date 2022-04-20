@@ -55,10 +55,7 @@ function addBookToLibrary(book) {
 	addBookCard(book);
 }
 
-function removeBookFromLibrary(number) {
-	delete myLibrary[number - 1];
-	const book_list_item = document.getElementById(number);
-}
+
 
 /* Functions */
 
@@ -150,14 +147,16 @@ const addBookButtons = function() {
 	toggle_read_btn.classList.add("card-btn");
 	toggle_read_btn.addEventListener("click", (event) => {
 		const book_id = document.getElementById(id_num);
-		toggleReadStatus(myLibrary[id_num - 1]);
-		
+		let current_read_status_html = book_id.childNodes[3].lastChild;
+		toggleReadStatus(myLibrary[id_num - 1], current_read_status_html);
 	});
 	
 	remove_book_btn.innerHTML = "Remove";
 	remove_book_btn.classList.add("remove-btn");
 	remove_book_btn.classList.add("card-btn");
-	remove_book_btn.setAttribute("click", "removeBookFromLibrary()");
+	remove_book_btn.addEventListener("click", (event) => {
+		removeBookFromLibrary(id_num);
+	});
 
 	buttons_div.appendChild(toggle_read_btn);
 	buttons_div.appendChild(remove_book_btn);
@@ -165,12 +164,20 @@ const addBookButtons = function() {
 	return buttons_div;
 }
 
-const toggleReadStatus = function(book) {
+const toggleReadStatus = function(book, html) {
 	if (book.read == "read") {
 		book.read = "not read";
+		html.innerHTML = "Not read";
 	} else {
 		book.read = "read";
+		html.innerHTML = "Read";
 	}
+}
+
+const removeBookFromLibrary = function(number) {
+	delete myLibrary[number - 1];
+	const book_list_item = document.getElementById(number);
+	book_list.removeChild(book_list_item);
 }
 
 // Reset/Cancel form and go back to main view
