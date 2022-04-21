@@ -3,8 +3,7 @@
 /* selectors */
 // navbar
 const add_book_btn = document.querySelector(".add-book");
-
-
+const theme_toggle_btn = document.querySelector(".theme-toggle");
 
 const container = document.querySelector(".container");
 
@@ -24,6 +23,7 @@ add_book_btn.addEventListener("click", (event) => {
 	displayForm();
 });
 
+theme_toggle_btn.addEventListener("click", setTheme);
 
 /* form element listeners */
 
@@ -55,8 +55,6 @@ function addBookToLibrary(book) {
 	addBookCard(book);
 }
 
-
-
 /* Functions */
 
 const printAllBooks = function() {
@@ -72,8 +70,11 @@ const displayForm = function() {
 	form_backdrop.style.display = "block";
 }
 
+// toggle light/dark theme
 function setTheme() {
-
+	const root = document.documentElement;
+	const new_theme = root.className == "dark" ? "light" : "dark";
+	root.className = new_theme;
 }
 
 // Get form data after clicking submit button

@@ -1,42 +1,60 @@
 :root {
-	--fcc-color: rgb(27, 145, 16);
-	--add-book-btn-light-color: #148000;
-	--add-book-btn-light-click-color: #144e0a;
 	--book-card-color: rgb(199, 245, 231);
 	--book-card-shadow-color: rgb(101, 126, 118);
 	--book-card-font-color: #447c44;
 	--book-card-toggle-read-btn-color: rgb(33, 54, 241);
 	--book-card-remove-btn-color: rgb(235, 93, 11);
-	--dark-navbar-color: #0A0A23;
-	--dark-main-color: #1b1b32;
+	--navbar-bg-color: rgb(27, 145, 16);
+	--navbar-font-color: white;
+	--theme-btn-color: #3e3ea5;
+	--main-font-color: #1b1b32;
+	--main-bg-color: white;
 	--form-backdrop-color: rgba(11, 25, 32, 0.5);
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 :root.light {
-	--fcc-color: rgb(27, 145, 16);
-
+	--navbar-bg-color: rgb(27, 145, 16);
+	--navbar-font-color: white;
+	--add-book-btn-color: #148000;
+	--add-book-btn-click-color: #144e0a;
+	--theme-btn-color: #3e3ea5;
+	--main-font-color: #1b1b32;
+	--main-bg-color: white;
+	--book-card-shadow-color: rgb(101, 126, 118);
 }
 
 :root.dark {
-	--dark-navbar-color: #0A0A23;
-	--dark-main-color: #1b1b32;
+	--navbar-bg-color: #0A0A23;
+	--navbar-font-color: white;
+	--add-book-btn-color: #3b3b4f;
+	--add-book-btn-click-color: #31313f;
+	--theme-btn-color: #21850d;
+	--main-bg-color: #1b1b32;
+	--main-font-color: white;
+	--book-card-shadow-color: rgb(238, 238, 238);
 }
 
 /* Tags */
+
+* {
+	margin: 0;
+	padding: 0;
+}
 
 html {
 	-webkit-text-size-adjust: 100%;
 }
 
-body {
-	margin: 0;
-	padding: 0;
+h1, .footer, a {
+	color: white;
 }
 
-h1 {
-	color: white;
+h2 {
+	margin-top: 48px;
+	margin-bottom: 48px;
+	color: var(--main-font-color);
 }
 
 label {
@@ -80,6 +98,11 @@ span {
 	display: block;
 }
 
+img {
+	width: 96px;
+	height: 40px;
+}
+
 /* Classes */
 
 .container {
@@ -87,11 +110,6 @@ span {
 	flex-direction: column;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(28, 163, 236, 0.5);
-}
-
-.container-dark-theme {
-	opacity: 1;
 }
 
 /* Navbar */
@@ -100,7 +118,7 @@ span {
 	display: flex;
 	height: 84px;
 	width: 100%;
-	background-color: var(--fcc-color);
+	background-color: var(--navbar-bg-color);
 	justify-content: center;
 	align-items: center;
 	gap: 42px;
@@ -123,17 +141,17 @@ span {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	background-color: var(--add-book-btn-light-color);
+	background-color: var(--add-book-btn-color);
 	width: 108px;
 	height: 64px;
 }
 
 .add-book:active {
-	background-color: var(--add-book-btn-light-click-color);
+	background-color: var(--add-book-btn-click-color);
 }
 
 .theme-toggle {
-	background-color: #0A0A23;
+	background-color: var(--theme-btn-color);
 	width: 64px;
 	height: 64px;
 }
@@ -143,19 +161,8 @@ span {
 }
 
 .theme-toggle img {
-	width: 100%;
-	height: 100%;
-	padding: 4px;
-}
-
-#light-mode {
-    background-color: #148000;
-}
-
-.dark-mode {
-	
-	background-color: var(--dark-main-color);
-	
+	width: 75%;
+	height: 75%;
 }
 
 /* Main Content */
@@ -163,11 +170,10 @@ span {
 .main-content {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	background-color: aqua;
-	height: calc(100vh - 84px);
 	width: 100%;
+	flex: 1 0 auto;
+	background-color: var(--main-bg-color);
 }
 
 .books-list {
@@ -179,8 +185,8 @@ span {
 
 .book {
 	background-color: var(--book-card-color);
-	width: 300px;
-	height: 420px;
+	width: 280px;
+	height: 400px;
 	border-radius: 4px;
 	border: 2px solid var(--book-card-color);
 	box-shadow: 2px 2px 6px 2px var(--book-card-shadow-color)
@@ -213,6 +219,16 @@ span {
 
 .remove-btn {
 	background-color: var(--book-card-remove-btn-color);
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+	width: 100%;
+	background-color: var(--navbar-bg-color);
 }
 
 /* Form display when add book button pressed */
